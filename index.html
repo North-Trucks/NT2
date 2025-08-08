@@ -274,11 +274,12 @@
     </div>
 
     <form class="contact-form">
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Your Email" required />
-      <textarea rows="5" placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" required></textarea>
+      <button type="submit" class="cta-button">Send Message</button>
     </form>
+ 
 
     <iframe src="https://www.google.com/maps?q=700%20E%20Butterfield%20Rd%20Lombard%20IL&output=embed"></iframe>
   </section>
@@ -291,6 +292,25 @@
 
 </body>
 </html>
+
+<script>
+document.querySelector("form").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const name = document.querySelector("input[name='name']").value;
+  const email = document.querySelector("input[name='email']").value;
+  const message = document.querySelector("textarea[name='message']").value;
+
+  const webhookURL = "https://script.google.com/macros/s/AKfycbyp8UTm2aRHG-taYYprfSDtbT3gHAWAP1ycLucAHzcX7wHui3JSs-Woy7g9blpj2Erj/exec"; // ← вставь свой URL
+
+  await fetch(webhookURL, {
+    method: "POST",
+    body: JSON.stringify({ name, email, message })
+  });
+
+  alert("Your message has been sent!");
+});
+</script>
+
 
 
 
