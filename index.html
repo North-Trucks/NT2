@@ -6,6 +6,33 @@
   <title>North Logistics Trucks Inc</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
+
+     .popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #fff;
+      border: 2px solid #004080;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+      padding: 25px 30px;
+      border-radius: 10px;
+      z-index: 1000;
+      display: none;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .popup-content {
+      font-size: 18px;
+      color: #004080;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9) translate(-50%, -50%); }
+      to { opacity: 1; transform: scale(1) translate(-50%, -50%); }
+    }
     :root {
       --primary: #004080;
       --accent: ##275DDB;
@@ -311,40 +338,50 @@
   <a href="privacy.html">Privacy Policy</a>
 </footer>
 
+  <div id="popup" class="popup">
+    <div class="popup-content" id="popup-message">✅ Your message has been sent!</div>
+  </div>
 </body>
 </html>
 
 <script>
-  function showPopup(message) {
-    const popup = document.getElementById("popup");
-    popup.textContent = message;
-    popup.classList.add("show");
+document.querySelector("form").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const name = document.querySelector("input[name='name']").value;
+  const email = document.querySelector("input[name='email']").value;
+  const message = document.querySelector("textarea[name='message']").value;
 
-    setTimeout(() => {
-      popup.classList.remove("show");
-    }, 3000);
-  }
+  const webhookURL = "https://script.google.com/macros/s/AKfycbyp8UTm2aRHG-taYYprfSDtbT3gHAWAP1ycLucAHzcX7wHui3JSs-Woy7g9blpj2Erj/exec"; // заменяй на свой
 
-  document.querySelector("form").addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const name = document.querySelector("input[name='name']").value;
-    const email = document.querySelector("input[name='email']").value;
-    const message = document.querySelector("textarea[name='message']").value;
-
-    const webhookURL = "https://script.google.com/macros/s/AKfycbyp8UTm2aRHG-taYYprfSDtbT3gHAWAP1ycLucAHzcX7wHui3JSs-Woy7g9blpj2Erj/exec";
-
+  try {
     await fetch(webhookURL, {
       method: "POST",
-      body: JSON.stringify({ name, email, message })
+      body: JSON.stringify({ name, email, message }),
+      headers: { "Content-Type": "application/json" }
     });
 
     showPopup("✅ Your message has been sent!");
-    document.querySelector("form").reset();
-  });
+    e.target.reset(); // очистить форму
+  } catch (err) {
+    showPopup("❌ Failed to send message. Try again.");
+  }
+});
+
+function showPopup(message) {
+  const popup = document.getElementById("popup");
+  const msg = document.getElementById("popup-message");
+  msg.textContent = message;
+  popup.style.display = "block";
+
+  setTimeout(() => {
+    popup.style.display = "none";
+  }, 3000);
+}
 </script>
 
 </body>
 </html>
+
 
 
 
