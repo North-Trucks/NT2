@@ -187,6 +187,27 @@
       text-decoration: underline;
     }
 
+    .popup {
+      visibility: hidden;
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #28a745;
+      color: white;
+      padding: 16px 24px;
+      border-radius: 8px;
+      font-size: 16px;
+      z-index: 9999;
+      opacity: 0;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .popup.show {
+      visibility: visible;
+      opacity: 1;
+    }
+    
     @media (max-width: 700px) {
       header h1 {
         font-size: 32px;
@@ -294,28 +315,36 @@
 </html>
 
 <script>
-document.querySelector("form").addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const name = document.querySelector("input[name='name']").value;
-  const email = document.querySelector("input[name='email']").value;
-  const message = document.querySelector("textarea[name='message']").value;
+  function showPopup(message) {
+    const popup = document.getElementById("popup");
+    popup.textContent = message;
+    popup.classList.add("show");
 
-  const webhookURL = "https://script.google.com/macros/s/AKfycbyp8UTm2aRHG-taYYprfSDtbT3gHAWAP1ycLucAHzcX7wHui3JSs-Woy7g9blpj2Erj/exec"; // ← вставь свой URL
+    setTimeout(() => {
+      popup.classList.remove("show");
+    }, 3000);
+  }
 
-  await fetch(webhookURL, {
-    method: "POST",
-    body: JSON.stringify({ name, email, message })
+  document.querySelector("form").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const name = document.querySelector("input[name='name']").value;
+    const email = document.querySelector("input[name='email']").value;
+    const message = document.querySelector("textarea[name='message']").value;
+
+    const webhookURL = "https://script.google.com/macros/s/AKfycbyp8UTm2aRHG-taYYprfSDtbT3gHAWAP1ycLucAHzcX7wHui3JSs-Woy7g9blpj2Erj/exec";
+
+    await fetch(webhookURL, {
+      method: "POST",
+      body: JSON.stringify({ name, email, message })
+    });
+
+    showPopup("✅ Your message has been sent!");
+    document.querySelector("form").reset();
   });
-
-  showPopup("✅ Your message has been sent!");
-});
 </script>
 
-<div id="popup" class="popup">
-  <div class="popup-content">
-    <p>✅ Your message has been sent!</p>
-  </div>
-</div>
+</body>
+</html>
 
 
 
