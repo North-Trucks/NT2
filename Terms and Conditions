@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms and Conditions | North Logistics Trucks Inc</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+      line-height: 1.7;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    h1, h2 {
+      color: #004080;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    a {
+      color: #0066cc;
+    }
+    section {
+      margin-bottom: 40px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Terms and Conditions</h1>
+  <h1>SMS Terms and Conditions</h1>
+
+
+  <section>
+    <p>- Consent for SMS Communication: "The phone numbers obtained through the SMS consent process will not be shared with third parties for marketing purposes."
+</p>
+  </section>
+<section>
+    <p>- Types of SMS Communications:
+If you have consented to receive text messages from  North Logisitcs Trucks Inc, you may receive messages related to shipment notifications.
+Example: "Hello, thank you for contacting North Logisitcs Trucks Inc. How can we assist you? Reply STOP to opt out at any time. Message and data rates may apply. For assistance, text HELP or visit our Privacy Policy and Terms and Conditions."
+</p>
+  </section>
+<section>
+    <p>-Message Frequency: Our SMS message frequency will range from 10 to 80 text messages daily across all users."
+</p>
+  </section>
+<section>
+    <p>- Potential Fees for SMS Messaging: Many carriers charge a fee for each message sent or received. This can vary depending on the carrier's pricing structure and whether the message is sent domestically or internationally."
+</p>
+  </section>
+<section>
+    <p>- Opt-In Method: We get consent verbally by asking: 'Do you agree to receive shipment notification text messages from  North Logisitcs Trucks Inc? Message frequency varies. Message and data rates may apply. For assistance, text HELP or visit our Website. To opt out at any time text STOP. Visit Privacy Policy."
+</p>
+  </section>
+
+  <section>
+    <p>
+- Opt-Out: "Customers can opt out of SMS messaging from  North Logisitcs Trucks Inc by replying STOP at any time to any received SMS message. Once opted out, they will receive no further SMS communication. They can opt back in at any time by replying START."
+</p>
+  </section>
+<section>
+    <p>- Standard Messaging Disclosures:</p>
+<ul>
+      <li>"Message and data rates may apply."</li>
+      <li>"Message frequency may vary."</li>
+      <li>"You can opt-out at any time by texting STOP."</li>
+      <li>"For assistance, text HELP or visit our Privacy Policy and Terms and Conditions."</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Contact Information</h2>
+    <p>
+      North Logistics Trucks Inc<br>
+      700 E. Butterfield Road, Suite 300, office #32, Lombard IL, 60148<br>
+      Phone: 312-445-7679<br>
+      Email: <a href="mailto:main@northtrucks.com">main@northtrucks.com</a>
+    </p>
+  </section>
+</body>
+</html>
